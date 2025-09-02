@@ -1,0 +1,68 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: monospace; color: #fbcfe8; background: #000; overflow-x: hidden; }
+
+/* Header */
+header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; background: rgba(0,0,0,.6);
+  border-bottom: 1px solid #ec4899; position: sticky; top: 0; z-index: 10;
+}
+header h1 { color: #f0abfc; font-size: 1.8rem; }
+header nav a { margin-left: 1rem; text-transform: uppercase; text-decoration: none; color: #fbcfe8; }
+header nav a:hover { color: #f0abfc; }
+
+/* Hero / Sections */
+.hero { text-align: center; padding: 5rem 2rem 3rem; }
+.hero h2 { font-size: 3rem; color: #c4b5fd; margin-bottom: 1rem; }
+.hero p { font-size: 1.3rem; line-height: 1.6; margin-bottom: 2rem; }
+section { padding: 3rem 2rem; text-align: center; }
+section h3 { font-size: 2rem; color: #c4b5fd; margin-bottom: 1.5rem; }
+section p { font-size: 1.2rem; line-height: 1.6; }
+
+/* Grid */
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 1.2rem; margin: 0 auto; max-width: 1100px;
+}
+
+/* Card as a colored link */
+.card {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 150px; border-radius: 14px; padding: 1.2rem;
+  text-decoration: none; color: #fff; font-weight: 800; letter-spacing: .5px;
+  border: 1px solid rgba(236,72,153,.6);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+  position: relative; overflow: hidden;
+}
+.card:hover {
+  transform: scale(1.04);
+  border-color: #a855f7;
+  box-shadow: 0 10px 30px rgba(168,85,247,.25);
+  filter: saturate(1.15) brightness(1.05);
+}
+.card .title { font-size: 1.25rem; text-shadow: 0 2px 10px rgba(0,0,0,.4); text-align: center; }
+.card .badge {
+  position: absolute; bottom: 10px; right: 12px;
+  font-size: .72rem; padding: .24rem .55rem; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.55); opacity: .9;
+  background: rgba(0,0,0,.25);
+}
+
+/* Footer */
+footer { text-align: center; padding: 1rem; background: rgba(0,0,0,.7); border-top: 1px solid #ec4899; }
+
+/* Glitch */
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; inset: 0; overflow: hidden; }
+.glitch::before { color: #ff00ff; animation: glitchTop 1.5s infinite linear alternate-reverse; }
+.glitch::after  { color: #aa00ff; animation: glitchBottom 1s infinite linear alternate-reverse; }
+@keyframes glitchTop   { 0%{clip:rect(0,900px,0,0);transform:translate(2px,-2px)}50%{clip:rect(0,900px,100%,0);transform:translate(-2px,2px)}100%{clip:rect(0,900px,0,0);transform:translate(1px,-1px)}}
+@keyframes glitchBottom{ 0%{clip:rect(0,900px,0,0);transform:translate(-2px,2px)}50%{clip:rect(0,900px,100%,0);transform:translate(2px,-1px)}100%{clip:rect(0,900px,0,0);transform:translate(-1px,1px)}}
+
+/* Background Effects */
+.bg-effects .gradient { position: fixed; inset: 0; background: linear-gradient(-45deg,#000,#1a0033,#3b0764,#000); background-size: 400% 400%; animation: gradientShift 15s ease infinite; z-index: -3; }
+@keyframes gradientShift { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+.radial1, .radial2 { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+.radial1 { background: radial-gradient(circle at 30% 30%, rgba(255,0,255,.15), transparent 70%); }
+.radial2 { background: radial-gradient(circle at 70% 70%, rgba(120,0,120,.2), transparent 70%); }
